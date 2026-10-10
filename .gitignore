@@ -1,0 +1,19 @@
+# Arquivos de ambiente
+.env
+.env.local
+
+#Imagens geradas automaticamente
+img/hero/*.tmp
+img/servicos/*.tmp
+img/portfolio/*.tmp
+
+# Arquivos de cache do navegador
+.cache/
+*.log
+
+# Pastas de build
+dist/
+build/
+
+# Dependências
+node_modules/

@@ -1,0 +1,840 @@
+/* ============================================================
+   ANDRÉ LUIZ — ARTE E PINTURAS
+   Estilo principal (CSS)
+   ============================================================
+   Mobile-first: o CSS mobile vem primeiro,
+   e as regras desktop vêm depois (media queries).
+   ============================================================ */
+
+/* ---------- valores principais (cores, fontes, espaçamentos) ---------- */
+:root {
+  /* Cores da marca */
+  --cor-primaria: #1a1a1a;        /* preto grafite */
+  --cor-fundo: #ffffff;            /* branco */
+  --cor-texto: #2b2b2b;            /* cinza escuro */
+  --cor-texto-secundario: #666666; /* cinza médio */
+  --cor-botao: #d4450d;            /* laranja/cma — tom forte ligado a pintura */
+  --cor-botao-hover: #c93a08;      /* laranja mais escuro no hover */
+  --cor-botao-texto: #ffffff;
+  --cor-slide: #f5f1ea;            /* creme claro — muito usado em empresas de tintas */
+  --cor-separador: #e0e0e0;
+  --cor-sombra: rgba(0, 0, 0, 0.08);
+
+  /* Espaçamentos base */
+  --espacamento: 24px;
+  --border-radius: 12px;
+
+  /* Fontes */
+  --font-principal: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ---------- reset básico ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-principal);
+  font-size: 16px;
+  color: var(--cor-texto);
+  line-height: 1.7;
+  background: var(--cor-fundo);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ---------- container centralizador ---------- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--espacamento);
+}
+
+/* ---------- cabeçalho (menu) ---------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--cor-fundo);
+  box-shadow: 0 2px 12px var(--cor-sombra);
+  padding: 12px 0;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--cor-primaria);
+  white-space: nowrap;
+}
+
+.logo-icon {
+  font-size: 1.6rem;
+}
+
+/* Menu principal (desktop) */
+.menu ul {
+  display: flex;
+  gap: 6px;
+}
+
+.menu a {
+  display: block;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  color: var(--cor-primaria);
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.menu a:hover {
+  background: var(--cor-slide);
+}
+
+/* Botão hamburger (aparece só em telas pequenas) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--cor-primaria);
+  border-radius: 3px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* ---------- seções principais ---------- */
+section {
+  padding: 80px 0;
+}
+
+/* separador entre seções */
+.seção-titulo {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 48px;
+}
+
+.section-tag {
+  display: inline-block;
+  background: var(--cor-slide);
+  color: var(--cor-primaria);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.seção-titulo h2 {
+  font-size: 2.2rem;
+  color: var(--cor-primaria);
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--cor-texto-secundario);
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  background: linear-gradient(180deg, #faf8f5 0%, #ffffff 30%);
+  padding: 120px 0 80px;
+  text-align: center;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: var(--cor-primaria);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: var(--cor-primaria);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--cor-botao);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: var(--cor-texto-secundario);
+  max-width: 600px;
+  margin: 0 auto 32px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+/* Botões */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 16px 28px;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-whatsapp {
+  background: var(--cor-botao);
+  color: var(--cor-botao-texto);
+  box-shadow: 0 6px 20px rgba(212, 69, 13, 0.35);
+}
+
+.btn-whatsapp:hover {
+  background: var(--cor-botao-hover);
+  color: var(--cor-botao-texto);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+}
+
+.btn-outline:hover {
+  background: var(--cor-primaria);
+  color: #fff;
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+
+/* ---------- SOBRE ---------- */
+.sobre {
+  background: var(--cor-slide);
+}
+
+/* Foto do André Luiz: removida temporariamente da exibição
+   (conteúdo não confirmado). Espaço reservado neutro. */
+.sobre-image {
+  background: linear-gradient(135deg, var(--cor-slide) 0%, #efe8de 100%);
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.sobre-image__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.sobre-text {
+  padding-right: 20px;
+}
+
+.sobre-text h2 {
+  font-size: 2rem;
+  color: var(--cor-primaria);
+  margin-bottom: 16px;
+}
+
+.sobre-text p {
+  margin-bottom: 20px;
+}
+
+.sobre-image {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 8px 24px var(--cor-sombra);
+}
+
+.sobre-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- SERVIÇOS (cards) ---------- */
+.servicos {
+  background: #fff;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-separador);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 14px var(--cor-sombra);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px var(--cor-sombra);
+}
+
+.card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.card:hover .card-image img {
+  transform: scale(1.06);
+}
+
+.card-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--cor-primaria);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  color: var(--cor-primaria);
+  margin: 16px 16px 8px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--cor-texto-secundario);
+  margin: 0 16px 16px;
+}
+
+
+/* ---------- PORTFÓLIO ---------- */
+.portfolio {
+  background: var(--cor-slide);
+}
+
+/* Grid unificado para o portfólio: 4 colunas em desktop, 2 em tablet e 1 em mobile */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* Itens do portfólio: área de imagem grande e alinhada */
+.portfolio-card {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-separador);
+  box-shadow: 0 6px 18px var(--cor-sombra);
+}
+
+.portfolio-card img {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Texto do portfólio: título e descrição abaixo da imagem */
+.portfolio-card .portfolio-text {
+  padding: 16px 16px 12px;
+  text-align: center;
+}
+
+.portfolio-card .portfolio-text .placeholder-icon {
+  font-size: 2rem;
+  color: var(--cor-primaria);
+  margin-bottom: 8px;
+}
+
+.portfolio-card .portfolio-text .placeholder-text {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--cor-primaria);
+  margin-bottom: 4px;
+  word-break: break-word;
+}
+
+.portfolio-card .portfolio-text .placeholder-sub {
+  font-size: 0.85rem;
+  color: var(--cor-texto-secundario);
+}
+
+/* Responsividade do portfólio */
+@media (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+/* ---------- SERVIÇOS (cards) ---------- */
+.servicos {
+  background: #fff;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-separador);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 14px var(--cor-sombra);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px var(--cor-sombra);
+}
+
+.card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.card:hover .card-image img {
+  transform: scale(1.06);
+}
+
+.card-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--cor-primaria);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  color: var(--cor-primaria);
+  margin: 16px 16px 8px;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--cor-texto-secundario);
+  margin: 0 16px 16px;
+}
+
+.orcamento {
+  background: var(--cor-primaria);
+  color: #fff;
+}
+
+.orcamento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.orcamento-text h2 {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.orcamento-text p {
+  color: #d9d9d9;
+  margin-bottom: 24px;
+}
+
+.orcamento-text .btn-whatsapp {
+  background: #25d366;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.orcamento-text .btn-whatsapp:hover {
+  background: #1ebe5a;
+}
+
+.orcamento-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  background: #111111;
+  color: #ccc;
+  padding: 60px 0 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 40px;
+}
+
+.footer-about .logo {
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.footer-about p {
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.footer-contact a {
+  color: #fff;
+}
+
+.footer-contact a:hover {
+  color: var(--cor-botao);
+  text-decoration: underline;
+}
+
+.footer-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25d366;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.footer-whatsapp:hover {
+  background: #1eae5a;
+}
+
+.footer-services h4 {
+  color: #fff;
+  margin-bottom: 16px;
+  font-size: 1.05rem;
+}
+
+.footer-services ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+.footer-services a {
+  color: #999;
+  font-size: 0.95rem;
+  padding: 4px 0;
+  border-radius: 6px;
+  transition: color 0.2s;
+}
+
+.footer-services a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid #2a2a2a;
+  padding-top: 24px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* ---------- WhatsApp flutuante ---------- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  transition: transform 0.25s, box-shadow 0.25s;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 26px rgba(37, 211, 102, 0.55);
+}
+
+.whatsapp-float-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.whatsapp-float-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.whatsapp-float:hover .whatsapp-float-label {
+  opacity: 1;
+}
+
+/* ---------- RESPONSIVIDADE ---------- */
+/* ───── celulares menores que 768px ───── */
+@media (max-width: 767px) {
+  .header .container {
+    gap: 12px;
+  }
+
+  /* Menu hamburger sempre visível em celulares */
+  .menu-toggle {
+    display: flex;
+  }
+
+  .menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 8px 20px var(--cor-sombra);
+    padding: 8px 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .menu.ativo {
+    max-height: 400px;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .menu a {
+    padding: 12px 20px;
+    font-size: 1rem;
+    display: block;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 90px 0 60px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .btn {
+    padding: 14px 24px;
+    font-size: 0.95rem;
+  }
+
+  /* Sobre */
+  .sobre-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .sobre-text {
+    padding-right: 0;
+  }
+
+  /* Serviços */
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card-image {
+    height: 180px;
+  }
+
+  /* Portfolio */
+  .portfolio-item {
+    flex: 0 0 260px;
+  }
+
+  /* Orçamento */
+  .orcamento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .orcamento-image img {
+    height: 220px;
+  }
+}
+
+/* ───── tablets entre 768px e 1023px ───── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ───── desktop a partir de 1024px ───── */
+@media (min-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- Acessibilidade: redução de movimento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
